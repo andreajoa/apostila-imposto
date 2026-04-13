@@ -293,12 +293,11 @@ em { font-style: italic; }
     margin-bottom: -10px;
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 <style>
-  /* Fix for html2pdf rendering */
-  @media screen {
-    body { background: #ffffff !important; }
-  }
+@media print {
+  #pdf-download-btn { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -1779,84 +1778,18 @@ Sem registro = $0 de dedução. Com registro = até $1.540 de economia.
       <polyline points="7 10 12 15 17 10"/>
       <line x1="12" y1="15" x2="12" y2="3"/>
     </svg>
-    Baixar PDF
+    🖨️ Salvar como PDF
   </button>
 </div>
 
 <script>
 function downloadPDF() {
   const btn = document.getElementById('pdf-download-btn');
-  const btnInner = btn.querySelector('button');
-  btnInner.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Gerando PDF...';
-  btnInner.disabled = true;
-
-  // Clone the full page content
-  const source = document.documentElement.cloneNode(true);
-
-  // Remove the floating button from the clone
-  const cloneBtn = source.querySelector('#pdf-download-btn');
-  if (cloneBtn) cloneBtn.remove();
-
-  // Force all elements visible and background white in clone
-  const cloneBody = source.querySelector('body');
-  cloneBody.style.background = '#ffffff';
-  cloneBody.style.color = '#2c2c2c';
-
-  // Create a wrapper div from cloneBody innerHTML
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = cloneBody.innerHTML;
-  wrapper.style.background = '#ffffff';
-  wrapper.style.padding = '0';
-  wrapper.style.margin = '0';
-  wrapper.style.width = '210mm';
-
-  // Copy all stylesheets into wrapper via a temporary container
-  document.body.appendChild(wrapper);
-  wrapper.style.position = 'absolute';
-  wrapper.style.left = '-9999px';
-  wrapper.style.top = '0';
-
-  const opt = {
-    margin:      [15, 15, 15, 15],
-    filename:    'Guia-Impostos-Imigrantes-EUA-Kelly-Marques.pdf',
-    image:       { type: 'jpeg', quality: 0.95 },
-    html2canvas: {
-      scale: 1.5,
-      useCORS: true,
-      logging: false,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      windowWidth: wrapper.scrollWidth,
-      scrollX: 0,
-      scrollY: 0,
-      onclone: function(clonedDoc) {
-        // Force all elements to be visible in the cloned doc
-        const allEls = clonedDoc.querySelectorAll('*');
-        allEls.forEach(function(el) {
-          const style = window.getComputedStyle(el);
-          if (style.display === 'none') return;
-          el.style.visibility = 'visible';
-          el.style.opacity = '1';
-        });
-        // Remove floating btn if present
-        const floatBtn = clonedDoc.getElementById('pdf-download-btn');
-        if (floatBtn) floatBtn.remove();
-      }
-    },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: 'css', before: '.page-break', avoid: ['tr', 'td', '.no-break'] }
-  };
-
-  html2pdf().set(opt).from(wrapper).save().then(function() {
-    document.body.removeChild(wrapper);
-    btnInner.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar PDF';
-    btnInner.disabled = false;
-  }).catch(function(err) {
-    console.error(err);
-    document.body.removeChild(wrapper);
-    btnInner.innerHTML = 'Baixar PDF';
-    btnInner.disabled = false;
-  });
+  btn.style.display = 'none';
+  window.print();
+  setTimeout(function() {
+    btn.style.display = 'block';
+  }, 1000);
 }
 </script>
 
