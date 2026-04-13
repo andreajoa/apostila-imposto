@@ -293,63 +293,6 @@ em { font-style: italic; }
     margin-bottom: -10px;
 }
 </style>
-
-
-<style>
-/* ===== PRINT / PDF STYLES ===== */
-@media print {
-  /* Force all backgrounds and colors to print */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  /* Hide button */
-  #pdf-download-btn { display: none !important; }
-
-  /* Fix body for print - remove screen border, keep padding */
-  body {
-    border: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background-color: #f3efe6 !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E") !important;
-  }
-
-  /* Cover page - force full page gradient */
-  .cover {
-    background: linear-gradient(135deg, #1A3D6E 0%, #1f4575 40%, #243f6a 70%, #1A3D6E 100%) !important;
-    min-height: 100vh !important;
-    page-break-after: always !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* Prevent orphan headings */
-  h2 {
-    page-break-before: always !important;
-    page-break-after: avoid !important;
-  }
-  h2:first-of-type { page-break-before: auto !important; }
-  h3, h4 { page-break-after: avoid !important; }
-
-  /* Avoid breaking inside tables and callout boxes */
-  table, .callout, .tool-card, .quiz-card {
-    page-break-inside: avoid !important;
-  }
-
-  /* Keep paragraphs together with their headings */
-  p { orphans: 3; widows: 3; }
-
-  /* Preserve colored boxes */
-  .callout, .highlight-box, .tool-header, 
-  .checklist-item, .quiz-question {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-}
-</style>
 </head>
 <body>
 
@@ -361,7 +304,7 @@ em { font-style: italic; }
     <h2>Entenda o sistema, evite erros, aumente seu reembolso<br>e organize sua vida financeira com segurança</h2>
     <hr class="cover-divider">
     <div class="author">Kelly Marques — Preparadora de Impostos</div>
-    <div class="year">📅 Ano Fiscal 2027</div>
+    <div class="year">📅 Uso válido em qualquer ano fiscal</div>
     <p class="cover-footer">
         Inclui 11 ferramentas práticas &bull; Checklists &bull; Quizzes &bull; Tabelas<br>
         Organização anual &bull; Créditos e deduções &bull; Guia completo
@@ -372,7 +315,7 @@ em { font-style: italic; }
 <div class="page-content">
 <div class="disclaimer">
     <strong>Aviso Legal (Disclaimer)</strong><br>
-    Este material é de caráter <strong>educacional e informativo</strong>. Não substitui aconselhamento profissional de um CPA (Certified Public Accountant), contador licenciado ou advogado tributarista. As informações contidas neste guia são baseadas nas leis tributárias dos Estados Unidos para o ano fiscal 2027 e podem sofrer alterações.<br><br>
+    Este material é de caráter <strong>educacional e informativo</strong>. Não substitui aconselhamento profissional de um CPA (Certified Public Accountant), contador licenciado ou advogado tributarista. As informações contidas neste guia são baseadas nas leis tributárias dos Estados Unidos para o ano fiscal vigente e podem sofrer alterações.<br><br>
     Cada situação fiscal é única. Os valores, limites e regras mencionados podem não se aplicar a todos os indivíduos. Consulte sempre um profissional de impostos qualificado para orientação específica sobre sua situação.<br><br>
     A autora não se responsabiliza por decisões tomadas com base exclusiva neste material.
 </div>
@@ -616,7 +559,7 @@ Créditos diminuem conforme a renda sobe. Se você ganhou mais este ano, pode te
 
 <div style="flex: 1; min-width: 280px; background: #e8f0fe; padding: 15px; border-radius: 8px; border-left: 4px solid #1A3D6E;">
 <h4>📋 Standard Deduction vs. Itemized Deduction</h4>
-<p><strong>Standard Deduction:</strong> Valor fixo que o IRS permite deduzir sem comprovação. Em 2027: $15.000 (single), $30.000 (MFJ).</p>
+<p><strong>Standard Deduction:</strong> Valor fixo que o IRS permite deduzir sem comprovação. No ano fiscal vigente: $15.000 (single), $30.000 (MFJ).</p>
 <p><strong>Itemized Deduction:</strong> Você lista suas despesas dedutíveis (juros de hipoteca, property tax, doações, despesas médicas). Só vale a pena se o total for <strong>maior que a Standard Deduction</strong>.</p>
 </div>
 </div>
@@ -839,7 +782,7 @@ Créditos diminuem conforme a renda sobe. Se você ganhou mais este ano, pode te
 
 <h3>2. Standard Deduction vs. Itemized Deduction</h3>
 <table class="styled-table">
-<thead><tr><th></th><th>Standard Deduction (2027)</th><th>Itemized Deduction</th></tr></thead>
+<thead><tr><th></th><th>Standard Deduction (ano fiscal vigente)</th><th>Itemized Deduction</th></tr></thead>
 <tbody>
 <tr><td><strong>Single</strong></td><td>$15.000</td><td>Somatório de: juros de hipoteca + property tax + doações + despesas médicas</td></tr>
 <tr><td><strong>Head of Household</strong></td><td>$22.500</td><td>—</td></tr>
@@ -916,7 +859,7 @@ Maria tem 2 filhos menores e ganhou $38.000 no ano. Sem declarar os filhos, ela 
 <thead><tr><th>Requisito</th><th>O que significa</th><th>Exemplo</th></tr></thead>
 <tbody>
 <tr><td><strong>Relação</strong></td><td>Filho(a), enteado(a), filho adotivo, irmão(ã), sobrinho(a), neto(a) ou meio-irmão(ã)</td><td>Seu filho, sua sobrinha que mora com você</td></tr>
-<tr><td><strong>Idade</strong></td><td>Ter menos de 17 anos no final do ano fiscal (31 de dezembro)</td><td>Se o filho faz 17 em 15/01/2026, ele <strong>não</strong> qualifica para o ano fiscal 2027</td></tr>
+<tr><td><strong>Idade</strong></td><td>Ter menos de 17 anos no final do ano fiscal (31 de dezembro)</td><td>Se o filho faz 17 em 15/01/2026, ele <strong>não</strong> qualifica para o ano fiscal vigente</td></tr>
 <tr><td><strong>Residência</strong></td><td>Morar com você por mais da metade do ano (mais de 6 meses)</td><td>A criança morou com você de janeiro a setembro ✓</td></tr>
 <tr><td><strong>Suporte</strong></td><td>A criança não pode ter provido mais da metade do próprio sustento</td><td>Se o filho adolescente trabalha e paga suas próprias contas — cuidado!</td></tr>
 <tr><td><strong>Cidadania</strong></td><td>Ser cidadão americano, residente nacional ou residente alien com <strong>SSN válido</strong></td><td>ITIN <strong>não</strong> qualifica para CTC, mas pode qualificar para ODC ($500)</td></tr>
@@ -934,7 +877,7 @@ Maria tem 2 filhos menores e ganhou $38.000 no ano. Sem declarar os filhos, ela 
 <thead><tr><th>Requisito</th><th>O que significa</th></tr></thead>
 <tbody>
 <tr><td><strong>Relação</strong></td><td>Pais, avós, tios, sogros, parentes por afinidade ou qualquer pessoa que morou com você o ano inteiro como membro da casa</td></tr>
-<tr><td><strong>Renda bruta</strong></td><td>O dependente não pode ter renda bruta superior a <strong>$5.050</strong> (ano fiscal 2027)</td></tr>
+<tr><td><strong>Renda bruta</strong></td><td>O dependente não pode ter renda bruta superior a <strong>$5.050</strong> (ano fiscal vigente)</td></tr>
 <tr><td><strong>Suporte</strong></td><td>Você deve ter provido mais da metade do sustento dessa pessoa</td></tr>
 <tr><td><strong>Cidadania</strong></td><td>Ser cidadão americano, residente nacional ou residente alien (SSN ou ITIN)</td></tr>
 <tr><td><strong>Status civil</strong></td><td>Não pode ser declarado como dependente por outra pessoa</td></tr>
@@ -1036,7 +979,7 @@ João trouxe sua mãe do Brasil para morar com ele. Ela não trabalha, mora com 
 <p>Se você é solteiro(a), tem um dependente qualificado e paga mais da metade das despesas da casa, você pode declarar como <strong>Head of Household</strong> em vez de Single. A diferença é enorme:</p>
 
 <table class="styled-table">
-<thead><tr><th>Status</th><th>Standard Deduction (2027)</th><th>Economia estimada</th></tr></thead>
+<thead><tr><th>Status</th><th>Standard Deduction (ano fiscal vigente)</th><th>Economia estimada</th></tr></thead>
 <tbody>
 <tr><td>Single</td><td>$15.000</td><td>—</td></tr>
 <tr><td><strong>Head of Household</strong></td><td><strong>$22.500</strong></td><td><strong>~$1.500 a $2.250 a menos de imposto</strong></td></tr>
@@ -1139,14 +1082,14 @@ João trouxe sua mãe do Brasil para morar com ele. Ela não trabalha, mora com 
 <h4>Quem precisa fazer?</h4>
 <p>Se você recebe 1099 (Uber, DoorDash, freelancing, construção, faxina) ou tem renda que não tem imposto retido automaticamente, você <strong>precisa</strong> fazer pagamentos trimestrais ao IRS. Se não fizer, pode pagar multas e juros.</p>
 
-<h4>As 4 datas de pagamento (2027):</h4>
+<h4>As 4 datas de pagamento (ano fiscal vigente):</h4>
 <table class="styled-table">
 <thead><tr><th>Período</th><th>Data-limite de pagamento</th></tr></thead>
 <tbody>
-<tr><td>1º de janeiro a 31 de março</td><td><strong>15 de abril de 2027</strong></td></tr>
-<tr><td>1º de abril a 31 de maio</td><td><strong>16 de junho de 2027</strong></td></tr>
-<tr><td>1º de junho a 31 de agosto</td><td><strong>15 de setembro de 2027</strong></td></tr>
-<tr><td>1º de setembro a 31 de dezembro</td><td><strong>15 de janeiro de 2026</strong></td></tr>
+<tr><td>1º de janeiro a 31 de março</td><td><strong>data-limite do 1º trimestre do ano fiscal vigente</strong></td></tr>
+<tr><td>1º de abril a 31 de maio</td><td><strong>data-limite do 2º trimestre do ano fiscal vigente</strong></td></tr>
+<tr><td>1º de junho a 31 de agosto</td><td><strong>data-limite do 3º trimestre do ano fiscal vigente</strong></td></tr>
+<tr><td>1º de setembro a 31 de dezembro</td><td><strong>data-limite do 4º trimestre do ano seguinte</strong></td></tr>
 </tbody>
 </table>
 
@@ -1183,7 +1126,7 @@ Carlos trabalha com Uber e estima ganhar $50.000 no ano.<br>
 <tbody>
 <tr><td><strong>Quando paga imposto?</strong></td><td>Na aposentadoria (saque)</td><td>Agora (na contribuição)</td></tr>
 <tr><td><strong>Reduz imposto agora?</strong></td><td><strong>✅ SIM</strong></td><td>Não</td></tr>
-<tr><td><strong>Limite (2027)</strong></td><td>$7.000 ($8.000 se 50+)</td><td>$7.000 ($8.000 se 50+)</td></tr>
+<tr><td><strong>Limite (ano fiscal vigente)</strong></td><td>$7.000 ($8.000 se 50+)</td><td>$7.000 ($8.000 se 50+)</td></tr>
 <tr><td><strong>Para quem?</strong></td><td>Quem quer reduzir imposto hoje</td><td>Quem quer dinheiro livre de imposto na aposentadoria</td></tr>
 </tbody>
 </table>
@@ -1200,7 +1143,7 @@ Ana ganha $55.000 e contribui $3.000 para um Traditional IRA.<br>
 <p>Se você tem um plano de saúde <strong>High Deductible Health Plan (HDHP)</strong>, pode abrir um HSA. É a conta com os melhores benefícios fiscais nos EUA:</p>
 
 <table class="styled-table">
-<thead><tr><th>Benefício</th><th>Valor (2027)</th></tr></thead>
+<thead><tr><th>Benefício</th><th>Valor (ano fiscal vigente)</th></tr></thead>
 <tbody>
 <tr><td>Limite de contribuição (individual)</td><td>$4.300</td></tr>
 <tr><td>Limite de contribuição (família)</td><td>$8.550</td></tr>
@@ -1250,11 +1193,11 @@ Roberto faz faxina e trabalha com Handy. Antes, ele misturava tudo na conta pess
 
 <p>Se você usa o carro para trabalho (Uber, Lyft, DoorDash, visitas a clientes, imóveis de aluguel), a quilometragem é uma das maiores deduções disponíveis.</p>
 
-<h4>Taxa de quilometragem do IRS (2027):</h4>
+<h4>Taxa de quilometragem do IRS (ano fiscal vigente):</h4>
 <table class="styled-table">
 <thead><tr><th>Ano</th><th>Taxa por milha</th></tr></thead>
 <tbody>
-<tr><td>2027</td><td><strong>$0,70 por milha</strong></td></tr>
+<tr><td>ano fiscal vigente</td><td><strong>$0,70 por milha</strong></td></tr>
 <tr><td>2024</td><td>$0,67 por milha</td></tr>
 </tbody>
 </table>
@@ -1741,7 +1684,7 @@ Sem registro = $0 de dedução. Com registro = até $1.540 de economia.
 <!-- F10 -->
 <div class="tool-section">
     <h3>F10 — Modelo de Controle de Quilometragem</h3>
-    <p class="tool-instruction">Uso: anote TODA viagem de negócio. Taxa 2027: $0,70/milha. Recomendação: use o app Spark Driver (gratuito).</p>
+    <p class="tool-instruction">Uso: anote TODA viagem de negócio. Taxa ano fiscal vigente: $0,70/milha. Recomendação: use o app Spark Driver (gratuito).</p>
     <table class="styled-table">
     <thead><tr><th>Data</th><th>Origem</th><th>Destino</th><th>Motivo</th><th>Milhas</th><th>Valor ($)</th></tr></thead>
     <tbody>
@@ -1783,7 +1726,7 @@ Sem registro = $0 de dedução. Com registro = até $1.540 de economia.
     </tbody>
     </table>
     <div class="box-tip" style="margin-top: 10px; font-size: 9pt;">
-        <strong>💡 Dicas:</strong> Fotografe cada recibo assim que receber. Recibos desbotam — digitalizar é essencial. Nomeie cada arquivo com data e descrição (ex: "2027-01-15_Materiais_Lowe"). Para negócios, mantenha recibos separados por categoria.
+        <strong>💡 Dicas:</strong> Fotografe cada recibo assim que receber. Recibos desbotam — digitalizar é essencial. Nomeie cada arquivo com data e descrição (ex: "ano fiscal vigente-01-15_Materiais_Lowe"). Para negócios, mantenha recibos separados por categoria.
     </div>
 </div>
 
@@ -1793,64 +1736,9 @@ Sem registro = $0 de dedução. Com registro = até $1.540 de economia.
     <p style="font-size: 12pt; color: #555; margin-top: 20px;">Este guia foi feito com carinho para ajudar imigrantes<br>a entender e dominar o sistema de impostos dos EUA.</p>
     <p style="margin-top: 30px;"><strong>Kelly Marques</strong><br>Preparadora de Impostos</p>
     <p style="color: #888; font-size: 10pt; margin-top: 10px;">📱 WhatsApp: (857) 244-3842 &nbsp;|&nbsp; 📧 expressinc1040@gmail.com</p>
-    <p style="color: #aaa; font-size: 9pt; margin-top: 30px;">© 2027 — Todos os direitos reservados.<br>Este material é para fins educacionais. Consulte um CPA para orientação específica.</p>
+    <p style="color: #aaa; font-size: 9pt; margin-top: 30px;">© ano fiscal vigente — Todos os direitos reservados.<br>Este material é para fins educacionais. Consulte um CPA para orientação específica.</p>
 </div>
 
 </div> 
-
-<!-- Floating PDF Download Button -->
-<div id="pdf-download-btn" style="
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 9999;
-">
-  <div id="print-tooltip" style="display:none; position:absolute; bottom:70px; right:0; background:#0d1f3c; color:#f5f0e8; padding:12px 16px; border-radius:10px; font-size:13px; width:240px; text-align:left; line-height:1.5; box-shadow:0 4px 16px rgba(0,0,0,0.3);">
-    <strong>Como salvar como PDF:</strong><br>
-    1. Clique em <strong>🖨️ Baixar PDF</strong><br>
-    2. Na janela que abrir, escolha <strong>"Salvar como PDF"</strong><br>
-    3. Em <em>Mais configurações</em>, ative <strong>"Gráficos de fundo"</strong> para manter as cores
-    <div style="position:absolute;bottom:-8px;right:30px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #0d1f3c;"></div>
-  </div>
-  <button onclick="downloadPDF()" 
-    onmouseover="document.getElementById('print-tooltip').style.display='block'"
-    onmouseout="document.getElementById('print-tooltip').style.display='none'"
-    style="
-    background: #c9a227;
-    color: #0d1f3c;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 28px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
-  "
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    🖨️ Baixar PDF
-  </button>
-</div>
-
-<script>
-function downloadPDF() {
-  const btn = document.getElementById('pdf-download-btn');
-  btn.style.display = 'none';
-  window.print();
-  setTimeout(function() {
-    btn.style.display = 'block';
-  }, 1000);
-}
-</script>
-
 </body>
 </html>
